@@ -1,0 +1,12 @@
+# Keep directory templates and documentation; do not publish private datasets.
+SynRailObs/
+**/images/**
+**/labels/**
+!**/images/**/
+!**/labels/**/
+!**/.gitkeep
+*.cache
+**/*.cache
+**/*.pt
+**/preparation.json
+**/.preparing

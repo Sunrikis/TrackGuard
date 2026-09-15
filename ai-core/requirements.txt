@@ -1,0 +1,7 @@
+# CPU or CUDA PyTorch should be installed first using https://pytorch.org/get-started/locally/
+ultralytics==8.4.21
+opencv-python==4.8.0.76
+numpy==1.26.4
+Pillow==11.3.0
+# Used only by prepare_model.py to embed custom obstacle labels.
+openai-clip==1.0.1

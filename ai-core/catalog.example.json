@@ -1,0 +1,14 @@
+[
+  {
+    "id": "trackguard-world.pt",
+    "name": "TrackGuard YOLO-World",
+    "description": "配置支持人员、车辆、摩托车、动物和岩石 / 障碍物的本地模型。",
+    "categories": ["person", "vehicle", "motorcycle", "animal", "obstacle"]
+  },
+  {
+    "id": "yolov8l-worldv2.pt",
+    "name": "YOLOv8l-World v2",
+    "description": "通用预训练模型，实际类别覆盖范围取决于权重中保存的目标词。",
+    "categories": ["person", "vehicle", "motorcycle", "animal", "obstacle"]
+  }
+]

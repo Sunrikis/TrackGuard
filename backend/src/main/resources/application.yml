@@ -1,0 +1,47 @@
+server:
+  address: ${SERVER_ADDRESS:127.0.0.1}
+  port: ${SERVER_PORT:8080}
+  servlet:
+    session:
+      timeout: 8h
+      cookie:
+        name: TRACKGUARD_SESSION
+        http-only: true
+        same-site: lax
+        secure: ${COOKIE_SECURE:false}
+  error:
+    include-message: never
+spring:
+  application:
+    name: trackguard
+  datasource:
+    url: ${DB_URL:jdbc:sqlserver://localhost:1433;databaseName=RFOID_TrackGuard;encrypt=true;trustServerCertificate=true}
+    username: ${DB_USERNAME:rfoid_app}
+    password: ${DB_PASSWORD:}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    hikari:
+      maximum-pool-size: 6
+      connection-timeout: 5000
+  sql:
+    init:
+      mode: always
+      encoding: UTF-8
+      separator: GO
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 101MB
+  jackson:
+    default-property-inclusion: non_null
+app:
+  storage: ${RFOID_STORAGE:storage}
+  python: ${RFOID_PYTHON:python}
+  worker: ${RFOID_WORKER:ai-core/worker.py}
+  model: ${RFOID_MODEL:ai-core/models/trackguard-world.pt}
+  inference-timeout-seconds: ${RFOID_TIMEOUT:300}
+  worker-startup-timeout-seconds: ${RFOID_WORKER_STARTUP_TIMEOUT:180}
+  max-video-seconds: 120
+  queue-capacity: 8
+logging:
+  file:
+    name: ${RFOID_LOG:${rfoid.projectRoot:.}/storage/backend.log}
